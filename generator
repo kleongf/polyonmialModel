@@ -1,0 +1,22 @@
+from PIL import Image, ImageDraw, ImageFont
+import os
+import random
+
+letters = "qwertyuiopasdfghjklzxcvbnm"
+symbols = ["+", "-"]
+
+def polynomial():
+  return f"{random.randint()}{letters[random.randint(0, 25)]}² {random.choice(symbols)} {random.randint}{letters[random.randint(0, 25)]} {random.choice(symbols)} {random.randint}"
+
+def make_image(text, size, count):
+
+  img = Image.open('White background.jpeg')
+  d1 = ImageDraw.Draw(img)
+  font = ImageFont.truetype("arial.ttf", size)
+  d1.text((0, 0), text, fill =(0, 0, 0), font=font)
+  img.save(f"results.jpeg{count}")
+
+for i in range (1000):
+  count = 1
+  make_image(polynomial(), 20, count)
+  count += 1
